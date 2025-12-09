@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ci-cd-final-deployment
+  labels:
+    app: ci-cd-final
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ci-cd-final
+  template:
+    metadata:
+      labels:
+        app: ci-cd-final
+    spec:
+      containers:
+        - name: app
+          image: aamayap/ci-cd-final:latest
+          ports:
+            - containerPort: 3000
